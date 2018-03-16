@@ -1,0 +1,6 @@
+*~
+*.o
+lex.yy.c
+parser.c
+y.tab.h
+idice
