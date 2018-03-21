@@ -58,6 +58,10 @@ int64_t eval_mathop(node* n){
 }
 
 int64_t eval_roll(node* n){
+    if((n->data.roll.n)>2000){
+        printf("Just... stop. Think about your life. You do not need this many dice.\n");
+        exit(1);
+    }
     int64_t rv=0;
     uint32_t *rl=calloc(n->data.roll.n, sizeof(uint32_t));
     for(int64_t i=0; i<n->data.roll.n;i++)
@@ -97,14 +101,14 @@ int64_t eval_roll(node* n){
     for(int64_t i=0; i<as;i++){
         if(i>=es-srn&&i<es) rv+=rl[i];
         printf((i<(es-srn)||i>=es)?"~~%d~~":"%d", rl[i]);
-        if(i!=(as-1)) printf(", ");
+        if(i!=(as-1)) printf("+");
     }
     if(bs){
         printf(" - !(");
         for(int64_t i=0; i<bs;i++){
             rv+=barr[i];
             printf("%d", barr[i]);
-            if(i!=(bs-1)) printf(", ");
+            if(i!=(bs-1)) printf("+");
         }
         printf(")");
     }
