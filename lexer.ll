@@ -16,9 +16,9 @@ extern uint64_t ntimes;
 [+\-*]  {yylval=new_mathop(yytext[0], NULL, NULL);return yytext[0]=='*'?MOP:PMOP;}
 [!eku]  {yylval=new_rmod(yytext[0], 0, NULL); return RMOD;}
 #.*     {printf("%s =>", yytext);}
-.       {return yytext[0];}
 [\t ]+ ;
 ^\/[A-Za-z]* ;
+.       {return yytext[0];}
 %%
 
 void parse(char* str){
