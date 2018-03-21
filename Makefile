@@ -2,6 +2,7 @@ all: idice
 
 LDLIBS= -lsodium
 CFLAGS= -O3
+YFLAGS= -d
 idice: eval.o parser.o type.o lex.yy.o
 
 

@@ -18,7 +18,7 @@ extern uint64_t ntimes;
 #.*     {printf("%s =>", yytext);}
 .       {return yytext[0];}
 [\t ]+ ;
-^\/[A-Za-z]*[\t ]+ ;
+^\/[A-Za-z]* ;
 %%
 
 void parse(char* str){
